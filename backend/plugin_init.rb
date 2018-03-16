@@ -22,11 +22,11 @@ env_list.each do
      heira_hash=YAML::load_file(AppConfig[:heira_path])
 
      heira_hash.each do |key,value|    
-      sso_url= value if key.include? "sso_url"
-      sso_frontend_port= value if key.include? "frontend_port"
-      sso_login_url=value if key.include? "sso_login_url"
-      AppConfig[:ap_id]= value if key.include? "archivesspace::ap_id:"
-      AppConfig[:auth_key]= value if key.include? "archivesspace::auth_key:"
+      sso_url= value if key.include? "acm_plugins::sso_url"
+      sso_frontend_port= value if key.include? "acm_plugins::frontend_port"
+      sso_login_url=value if key.include? "acm_plugins::sso_login_url"
+      AppConfig[:ap_id]= value if key.include? "acm_plugins::ap_id"
+      AppConfig[:auth_key]= value if key.include? "acm_plugins::auth_key"
      end
    end
 end

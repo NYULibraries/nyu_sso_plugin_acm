@@ -16,9 +16,9 @@ env_list.each do
      heira_hash=YAML::load_file(AppConfig[:heira_path])
 
      heira_hash.each do |key,value|
-       sso_url=value if key.include? "sso_url"
-       sso_backend_port=value if key.include? "backend_port"
-       sso_login_url=value if key.include? "sso_login_url"
+       sso_url=value if key.include? "acm_plugins::sso_url"
+       sso_backend_port=value if key.include? "acm_plugins::backend_port"
+       sso_login_url=value if key.include? "acm_plugins::plugin_revision::sso_login_url"
      end
   end
 end
