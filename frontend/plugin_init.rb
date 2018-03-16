@@ -8,12 +8,12 @@ sso_url="archivesspace-stage.library.nyu.edu"
 sso_backend_port="8489"
 sso_login_url="dev.login.library.nyu.edu"
 env_list=['development','stage','production']
-env_list.each do 
-   file_path = "/etc/puppetlabs/code/environments/#{env_value}/data/aspace_plugins.yaml"
+env_list.each do |env_list|
+   file_path = "/etc/puppetlabs/code/environments/#{env_list}/data/aspace_plugins.yaml"
    
    if File.exists?(file_path)
 
-     heira_hash=YAML::load_file(AppConfig[:heira_path])
+     heira_hash=YAML::load_file(file_path)
 
      heira_hash.each do |key,value|
        sso_url=value if key.include? "acm_plugins::sso_url"

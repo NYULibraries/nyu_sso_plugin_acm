@@ -13,13 +13,13 @@ AppConfig[:ap_id]="3cc3e7e396c1d431424fce3469f282058d2fbc035d5961eead87992a96eee
 AppConfig[:auth_key]="key"
 
 env_list=['development','stage','production']
-env_list.each do
+env_list.each do |env_list|
 
-   file_path = "/etc/puppetlabs/code/environments/#{env_value}/data/aspace_plugins.yaml"
+   file_path = "/etc/puppetlabs/code/environments/#{env_list}/data/aspace_plugins.yaml"
 
    if File.exists?(file_path)
 
-     heira_hash=YAML::load_file(AppConfig[:heira_path])
+     heira_hash=YAML::load_file(file_path)
 
      heira_hash.each do |key,value|    
       sso_url= value if key.include? "acm_plugins::sso_url"
