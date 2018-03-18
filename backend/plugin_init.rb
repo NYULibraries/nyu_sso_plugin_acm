@@ -31,7 +31,7 @@ env_list.each do |env_list|
    end
 end
 
-AppConfig[:sso_login_url]= sso_login_url
+AppConfig[:sso_login_url]= "https://#{sso_login_url}"
 
 AppConfig[:frontend_sso_url]= "https://#{sso_url}"
 
