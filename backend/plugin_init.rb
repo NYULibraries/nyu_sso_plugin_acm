@@ -31,7 +31,9 @@ env_list.each do |env_list|
    end
 end
 
-sso_frontend_port.empty? ? AppConfig[:frontend_sso_url]= "https://#{sso_url}":AppConfig[:frontend_sso_url]= "https://#{sso_url}:#{sso_frontend_port}"
+AppConfig[:sso_login_url]= sso_login_url
+
+AppConfig[:frontend_sso_url]= "https://#{sso_url}"
 
 class ArchivesSpaceService < Sinatra::Base
   use Rack::Session::Cookie, :key => 'rack.session',
@@ -41,7 +43,7 @@ class ArchivesSpaceService < Sinatra::Base
   use OmniAuth::Builder do
     provider :nyulibraries, AppConfig[:ap_id], AppConfig[:auth_key],
     client_options: {
-            site: '"#{sso_login_url}"',
+            site: AppConfig[:sso_login_url],
             authorize_path: '/oauth/authorize'
     }
   end
