@@ -1,5 +1,4 @@
 GEM
-  remote: http://rubygems.org/
   remote: http://nexus-dev.dlts.org:8081/nexus/content/groups/gems-all/
   specs:
     faraday (1.0.0)
@@ -9,6 +8,12 @@ GEM
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
+    omniauth-nyulibraries (2.1.2)
+      omniauth-oauth2 (~> 1.3.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -18,15 +23,14 @@ GEM
     omniauth (1.3.2)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
-    omniauth-nyulibraries (2.1.2)
-      omniauth-oauth2 (~> 1.3.1)
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    rack (2.2.2)
+    rack (2.2.3.1)
 
 PLATFORMS
   java
+  x86_64-linux
 
 DEPENDENCIES
   oauth2 (= 1.4.4)
